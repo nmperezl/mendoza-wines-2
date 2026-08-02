@@ -23,6 +23,7 @@ const MapWithNoSSR = dynamic(
   }
 );
 
+// IMPORTANTE: Sin "export" adelante
 const WINERIES: Winery[] = [
   {
     id: 'catena-zapata',
