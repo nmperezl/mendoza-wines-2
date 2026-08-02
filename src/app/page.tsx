@@ -3,6 +3,18 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 
+interface Winery {
+  id: string;
+  name: string;
+  zone: string;
+  address: string;
+  lat: number;
+  lng: number;
+  days: string;
+  hours: string;
+  whatsapp: string;
+}
+
 const MapWithNoSSR = dynamic(
   () => import('../components/MapComponent'),
   { 
@@ -11,7 +23,7 @@ const MapWithNoSSR = dynamic(
   }
 );
 
-const WINERIES = [
+const WINERIES: Winery[] = [
   {
     id: 'catena-zapata',
     name: 'Bodega Catena Zapata',
@@ -48,7 +60,7 @@ const WINERIES = [
 ];
 
 export default function Home() {
-  const [selectedZone, setSelectedZone] = useState('Todas');
+  const [selectedZone, setSelectedZone] = useState<string>('Todas');
 
   const filteredWineries = WINERIES.filter(
     (w) => selectedZone === 'Todas' || w.zone === selectedZone
